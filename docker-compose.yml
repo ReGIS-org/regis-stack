@@ -1,0 +1,57 @@
+version: '2'
+services:
+  db:
+#    image: klaemo/couchdb:1.6.1
+    build:
+      context: simcity-couchdb
+    ports:
+      - "127.0.0.1:5784:5984"
+      - "127.0.0.1:5884:5984"
+    environment:
+      COUCHDB_USER: simcityadmin
+      COUCHDB_PASSWORD: simcity
+  simcity_webservice:
+    build:
+      context: simcity-webservice
+    ports:
+      - "127.0.0.1:9098:9090"
+      - "127.0.0.1:30022:22"
+    links:
+      - db:taskdb
+      - db:jobdb
+      - webdav
+      - slurm
+  simcity_commonsense:
+    build:
+      context: simcity-commonsense
+    ports:
+      - "127.0.0.1:3003:3003"
+      - "127.0.0.1:20022:22"
+    links:
+      - simcity_webservice
+    volumes:
+      - ./sim-city-cs/:/home/simcity/sim-city-cs/
+  webdav:
+    build:
+      context: simcity-webdav
+    ports:
+      - "127.0.0.1:8080:80"
+  slurm:
+    build:
+      context: simcity-slurm
+    ports:
+      - "127.0.0.1:10022:22"
+    links:
+      - db:taskdb
+      - db:jobdb
+      - webdav
+  nginx:
+    build:
+      context: simcity-nginx
+    ports:
+      - "127.0.0.1:80:80"
+    links:
+      - db:couchdb
+      - webdav
+      - simcity_webservice
+      - simcity_commonsense
