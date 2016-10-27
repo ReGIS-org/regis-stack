@@ -17,8 +17,8 @@ RUN rm -f /etc/service/sshd/down
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # Upgrade OS
-RUN apt-get update && apt-get upgrade -y -o Dpkg::Options::="--force-confold" && \
-  apt-get install -y mailutils slurm-llnl python3 git python-pip && \
+RUN apt-get update && \
+  apt-get install -y slurm-llnl python3 git python-pip && \
   pip install virtualenv
 
 # Create a test user

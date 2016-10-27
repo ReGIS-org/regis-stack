@@ -8,5 +8,3 @@ COPY ./simulations /home/simcity/sim-city-webservice/simulations/
 
 RUN chown simcity:simcity /home/simcity/sim-city-webservice/config.ini
 RUN chown simcity:simcity /home/simcity/sim-city-webservice/simulations
-
-USER simcity

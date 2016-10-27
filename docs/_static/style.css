@@ -1,0 +1,11 @@
+body {
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+em {
+    font-style: normal;
+    font-weight: bold;
+    font-family: monospace;
+    color: #4070a0;
+}
