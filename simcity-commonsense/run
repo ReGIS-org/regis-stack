@@ -1,4 +1,5 @@
 #!/bin/sh
 
 cd /home/simcity/
+chown -R simcity:simcity sim-city-cs
 exec /sbin/setuser simcity ./start.sh
