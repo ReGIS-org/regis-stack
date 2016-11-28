@@ -64,7 +64,7 @@ parts of the commented sections be sure to remove the comments. Also keep in min
 that parts are sometimes ommitted for readability.`
 
 Main Structure:
-'''''''''
+'''''''''''''''
 Below is the main general structure for a project in the sim-city-cs framework.
 
 .. code:: json

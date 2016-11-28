@@ -34,3 +34,6 @@ To run the infrastructure use the following command:
     docker-compose up --build
 
 You can stop it by pressing ctrl-c.
+
+We use the --build option so the docker images are built when you start it. Since I am assuming you will make changes
+to either sim-city-cs, simcity-webservice or simcity-slurm this ensures those changes are actually in the running system.
