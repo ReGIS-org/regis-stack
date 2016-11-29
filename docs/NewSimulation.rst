@@ -129,13 +129,93 @@ The description of your simulation should have to the following layout.
         "form": [                                           # Optional description of how to display the form for submitting
             ...                                             # a simulation of this type. Required if using geo coordinates as
         ],                                                  # an input.
-        "properties": {                                     # geojson description of the input.
+        "properties": {                                     # json-schema description of the input.
             ...
         },
         "required": [                                       # List of required fields.
             ...
         ]
     }
+
+Properties:
+~~~~~~~~~~~
+The properties describe to the system which parameters your simulation uses and what their type is.
+The example below shows one such a parameter called *populationSampleFactor* which is a of the number type
+it has a maximum and a minimum and a default value. These are used by the system to check input before running
+your simulation as well as to **render the form on the interface**.
+
+Below are two examples of parameters, please refer to the `json schema website <http://json-schema.org/>`__ and
+this `guide <https://spacetelescope.github.io/understanding-json-schema/about.html>`__.
+
+.. code:: json
+
+    "properties": {
+        "populationSampleFactor": {         # Example of a parameter that is a number
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1,
+            "default": 0.1,
+            "title": "Commute factor",
+            "description": "portion of the population (totalling 8.5 million) that commutes"
+        },
+        "fireStations": {                   # Example of an array parameter
+            "title": "Fire stations",
+            "minItems": 0,
+            "type": "array",
+            "startEmpty": true,
+            "items": {                      # With an array parameter each item must be 
+                "type":"object",            # described as well
+                "properties": {             # Each item in this case has an x and y coordinate
+                    "id": {                 # as well as an id. This is an example of a geo-
+                        "type":"string"     # coordinate
+                    },
+                    "x": {
+                        "type":"number"
+                    },
+                    "y": {
+                        "type":"number"
+                    }
+                },
+                "required": ["x","y"]
+            },
+            "description": "Please add one or more fire stations to the map",
+
+            # This message is shown when the form does not validate on this field 
+            "validationMessage": "Please add at least one fire station"
+        }
+    }
+
+Form:
+~~~~~
+Form is an array in the description that is used by angular json schema form to render the form.
+The order of this array determines the order of the fields in the form.
+
+Below is an example. populationSampleFactor does not have any special configuration.
+fireStations however is special, it has a number of configuration fields, both for the
+configuration of its display as well as to let the frontend know this is a geo-coordinate input.
+
+.. code:: json
+
+    "form": [
+        "populationSampleFactor",
+        {
+            "key": "fireStations",          # The key used in the form
+            "startEmpty": true,             # Do not add a default first item
+            "add": null,                    # Do not put an add button in the form
+            "remove": null,                 # Do not put a remove button in the form
+            "type": "layer",                # Special type to tell the frontend that this field
+                                            # comes from a geojson layer
+            "layer": "test_sim",            # The name of the layer
+            "featureId": "FireStation",     # featureId of this type. See Resource type json section
+            "items": [
+                {
+                    "type": "point2d"       # Special display of this type for each item that can be
+                }                           # defined in sim-city-cs
+            ]
+        }
+    ]
+
+
 
 Resource type json:
 -------------------
