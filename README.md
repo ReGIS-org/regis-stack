@@ -4,6 +4,8 @@ Full Sim-City Stack using docker files and docker-compose.
 The goal of this stack is to set up a development infrastructure of the sim-city stack
 it is not meant for production deployment!
 
+The full documentation is available at http://sim-city-stack.readthedocs.io/
+
 First, install docker and docker-compose.
 
 Check out the [sim-city-cs](https://github.com/indodutch/sim-city-cs) repository in the same directory as
