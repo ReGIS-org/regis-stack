@@ -36,8 +36,8 @@ From the sim-city-cs directory:
     cd public/data/projects
     mkdir MyProject
 
-Add the project to the projects.json file:
-------------------------------------------
+Add the project to the projects.json file
+-----------------------------------------
 Open the projects.json file located in public/data/projects
 
 At the bottom of this json file you will find a key called *projects*.
@@ -54,8 +54,8 @@ This is a list of project objects. Add your project here with the following temp
         ...
     ]
 
-Create a project.json:
-----------------------
+Create a project.json
+---------------------
 Use the project.json at the end of this page as a basis for your new project.
 Below I go into the several parts of the project.json.
 
@@ -63,8 +63,8 @@ Below I go into the several parts of the project.json.
 parts of the commented sections be sure to remove the comments. Also keep in mind
 that parts are sometimes ommitted for readability.`
 
-Main Structure:
-'''''''''''''''
+Main Structure
+''''''''''''''
 Below is the main general structure for a project in the sim-city-cs framework.
 
 .. code:: json
@@ -105,8 +105,8 @@ Below is the main general structure for a project in the sim-city-cs framework.
         }
     }
 
-Dashboards:
-'''''''''''
+Dashboards
+''''''''''
 The *dashboards* section describes which dashboards a project has, it is a list of dashboard objects.
 Each dashboard can hold one or more widgets described in the widgets subsection.
 
@@ -136,8 +136,8 @@ The sim-city example project has two dashboards: The Home dashboard and the Job 
     ...
     ]
 
-Widgets:
-""""""""
+Widgets
+"""""""
 
 The *widgets* section is a list of widgets included in the *dashboard*.
 In the simcity example project the home dashboard has a *buttonwidget* to allow the user the drag and drop features for the simulation
@@ -165,8 +165,8 @@ on the map and a *simulation-form* widget for the form to submit a simulation.
         ...
         ]
 
-Groups:
-'''''''
+Groups
+''''''
 
 A group is a set of layers grouped together under a common name.
 These groups are displayed under a collapsable name in the left menu under layers.
@@ -190,8 +190,8 @@ These groups are displayed under a collapsable name in the left menu under layer
     },
     ...
 
-Example Layer:
-""""""""""""""
+Example Layer
+"""""""""""""
 
 .. code:: json
 
@@ -239,8 +239,8 @@ It is also possible to define a layergroup where the layers are taken from an ex
                                                             # layer group
     }
 
-Baselayers:
-'''''''''''
+Baselayers
+''''''''''
 You can include extra baselayers on top of those defined in the projects.json file.
 Below is an example for OpenStreetMap (which is already defined in the projects.json file, this is only to illustrate).
 
@@ -261,8 +261,8 @@ Below is an example for OpenStreetMap (which is already defined in the projects.
     }
 
 
-Full Project json file:
-'''''''''''''''''''''''
+Full Project json file
+''''''''''''''''''''''
 
 .. code:: json
 

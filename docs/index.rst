@@ -8,7 +8,7 @@ Sim-City Documentation
 The SIM-CITY Common Sense project is the front-end for the sim-city simulation framework.
 It is based on the `csWeb framework <https://github.com/TNOCS/csWeb>`__.
 
-Contents:
+Contents
 ---------
 .. toctree::
    :maxdepth: 1
@@ -26,7 +26,7 @@ web-interface these services need to be set up. This manual uses docker images t
 locally. However, the docker files can also be used as a summary for how to set up the different
 components stand alone.
 
-Components:
+Components
 -----------
 The web-interface
     The web interface displays geo-spatial data and allows for filtering and colouring of the data.

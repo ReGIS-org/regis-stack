@@ -9,8 +9,8 @@ Adding a new simulation consists of the following steps:
 2.  Adding the simulation to the slurm docker.
 3.  Configuring the webservice.
 
-Setting up your simulation:
-===========================
+Setting up your simulation
+==========================
 In order to run your simulation using the sim-city stack it needs to adhere to a few conventions.
 
 One command
@@ -90,8 +90,8 @@ We render the input form using `Angular schema form <http://schemaform.io/>`__. 
 Furthermore the description of the simulation points to a *resourceTypeUrl*, this is a file that is served by the webservice as well
 that describes the geojson output of your simulation so the front-end can display it nicely. This is discussed in section Resource type json.
 
-Simulation json:
-----------------
+Simulation json
+---------------
 Similar to adding your code to the slurm docker image you create a json file in the *simcity-webservice/simulations* directory.
 This json file should have the following layout:
 
@@ -137,8 +137,8 @@ The description of your simulation should have to the following layout.
         ]
     }
 
-Properties:
-~~~~~~~~~~~
+Properties
+~~~~~~~~~~
 The properties describe to the system which parameters your simulation uses and what their type is.
 The example below shows one such a parameter called *populationSampleFactor* which is a of the number type
 it has a maximum and a minimum and a default value. These are used by the system to check input before running
@@ -185,8 +185,8 @@ this `guide <https://spacetelescope.github.io/understanding-json-schema/about.ht
         }
     }
 
-Form:
-~~~~~
+Form
+~~~~
 Form is an array in the description that is used by angular json schema form to render the form.
 The order of this array determines the order of the fields in the form.
 
@@ -225,8 +225,8 @@ to add this feature to the input layer.
 
 
 
-Resource type json:
--------------------
+Resource type json
+------------------
 The resource type description is also a json file. This json file describes the various types of data that are used in your
 simulation, both in the input and the output.
 
