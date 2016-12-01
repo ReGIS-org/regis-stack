@@ -194,10 +194,18 @@ Below is an example. populationSampleFactor does not have any special configurat
 fireStations however is special, it has a number of configuration fields, both for the
 configuration of its display as well as to let the frontend know this is a geo-coordinate input.
 
+Most important here is that its type is "layer", this means the front-end expects this input to
+be given on a special layer. The name of this layer is given in the "layer" field, this layer is
+created automatically when this simulation is selected for the front-end.
+
+This in combination with the resourceType description the front-end creates drag-and-drop buttons
+to add this feature to the input layer. 
+
 .. code:: json
 
     "form": [
         "populationSampleFactor",
+                ...
         {
             "key": "fireStations",          # The key used in the form
             "startEmpty": true,             # Do not add a default first item
@@ -219,6 +227,136 @@ configuration of its display as well as to let the frontend know this is a geo-c
 
 Resource type json:
 -------------------
+The resource type description is also a json file. This json file describes the various types of data that are used in your
+simulation, both in the input and the output.
+
+Only properties that are defined in the *propertyTypeData* and are in the *propertyTypeKeys* of a featureType are available
+for non-admin users to display and filter on.
+
+Below is an example resource type description which describes three different feature types: FireStations, Fires and Wards.
+FireStations and Fires are used for the input to the simulation, while wards is the output of the simulation.
+
+The FireStation and Fire feature types describe a unique id and name for these types, as well as some *propertyTypeKeys*,
+these keys reference the *propertyTypeData* section lower in the file.
+The style description tells the front end how to display this feature type, which is also used to drag-and-drop these
+features on the map. In this case it defines a "point" drawing mode using an icon as a display.
+
+The Ward feature type also describes a unique id, a name and a number of *propertyTypeKeys*. In this case the drawing
+mode is "polygon" which means a shape on the map. The most obvious options for drawing modes are: Point, MultiPoint, Polygon,
+MultiPolygon, Line and PolyLine.
+
+The *propertyTypeData* section describes the features properties, this is used in the display of the features properties
+in the right sidebar in the user interface. As said before, describing your features here is crucial to allow non-admin
+users to display and filter different properties.
+
+.. code:: json
+
+    {
+        "id": "matsim",
+        "title": "matsim",
+        "featureTypes": {
+            "FireStation": {
+                "id": "SimCity#firestation",
+                "name": "FireStation",
+                "style": {
+                    "drawingMode": "Point",
+                    "iconUri": "images/brandweerposten/Brandweerkazerne.png",
+                    "cornerRadius": 50,
+                    "fillColor": "#ffffff",
+                    "iconWidth": 30,
+                    "iconHeight": 30,
+                    "strokeColor": "#ffffff"
+                },
+                "propertyTypeKeys": "title,notes",
+                "u": "bower_components/csweb/dist-bower/images/marker.png"
+            },
+            "Fire": {
+                "id": "SimCity#fire",
+                "name": "Fire",
+                "style": {
+                    "drawingMode": "Point",
+                    "iconUri": "data/images/fire.png",
+                    "cornerRadius": 50,
+                    "fillColor": "#ffffff",
+                    "iconWidth": 30,
+                    "iconHeight": 30,
+                    "strokeColor": "#ffffff"
+                },
+                "propertyTypeKeys": "title,notes",
+                "u": "bower_components/csweb/dist-bower/images/marker.png"
+            },
+            "Ward": {
+                "id": "SimCity#Ward",
+                "name": "Ward",
+                "style": {
+                    "nameLabel": "ward_name",
+                    "drawingMode": "Polygon",
+                    "cornerRadius": 50,
+                    "fillColor": "#999999",
+                    "iconWidth": 30,
+                    "iconHeight": 30,
+                    "strokeColor": "#ffffff"
+                },
+                "propertyTypeKeys": "ward_name;ward_no;cmc_mc_nm;tot_p;first_responder;second_responder",
+                "u": "bower_components/csweb/dist-bower/images/marker.png"
+            }
+        },
+        "propertyTypeData": {
+            "ward_no": {
+                "label": "ward_no",
+                "type": "text",
+                "title": "Ward Number",
+                "visibleInCallOut": true,
+                "canEdit": false,
+                "isSearchable": true,
+                "section": "Metadata"
+            },
+            "ward_name": {
+                "label": "Name",
+                "type": "text",
+                "title": "Name",
+                "visibleInCallOut": true,
+                "canEdit": false,
+                "isSearchable": true,
+                "section": "Metadata"
+            },
+            "cmc_mc_nm": {
+                "label": "cmc_mc_nm",
+                "type": "number",
+                "title": "City Name",
+                "canEdit": false,
+                "isSearchable": true,
+                "visibleInCallOut": true,
+                "section": "Metadata"
+            },
+            "first_responder": {
+                "label": "first_responder",
+                "type": "number",
+                "title": "First Responder",
+                "canEdit": false,
+                "isSearchable": true,
+                "visibleInCallOut": true
+            },
+            "second_responder": {
+                "label": "second_responder",
+                "type": "number",
+                "title": "Second Responder",
+                "canEdit": false,
+                "isSearchable": true,
+                "visibleInCallOut": true
+            },
+            "tot_p": {
+                "label": "tot_p",
+                "type": "number",
+                "title": "Total Population",
+                "canEdit": false,
+                "isSearchable": true,
+                "visibleInCallOut": true
+            }
+        },
+        "isDynamic": false
+    }
+
 
 Troubleshooting
 ===============
