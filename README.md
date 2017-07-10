@@ -12,13 +12,13 @@ Check out the [sim-city-cs](https://github.com/indodutch/sim-city-cs) repository
 this repo.
 Put your simulation scripts in the simcity-slurm/simulations/ directory with their respective .json description
 in the simcity-webservice/simulations/ directory. Check the documentation for more information on adding simulations
-to the system. 
+to the system.
 
 Then, run a test infrastructure with
 ```
-docker-compose up --build
+docker-compose -f docker-compose-demo.yml up --build
 ```
-The sim-city frontend is now available on localhost.
+The sim-city frontend is now available on http://localhost:8008/. Commonsense is running on localhost:3003.
 
 The sim-city-webservice is now available on localhost/explore/
 There is a CouchDB database running for tasks jobs on on localhost/couchdb/
