@@ -15,7 +15,8 @@ done
 TIME=`date`
 echo "$TIME - connected successfully"
 
-# TODO: Make user and password settable through environment variable?  
+# TODO: Make user and password settable through environment variable?
 simcity init -u simcityadmin -p simcity &&
-  python -m bottle scripts.mock --debug --reload --bind 0.0.0.0:9090
+  #python -m bottle scripts.mock --debug --reload --bind 0.0.0.0:9090
   #exec python -m bottle scripts.app --bind 0.0.0.0:9090 -s gevent
+  python -m bottle scripts.app --bind 0.0.0.0:9090 -s gevent
