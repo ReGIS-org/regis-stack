@@ -36,6 +36,7 @@ services:
       - slurm
     volumes:
       - ./simcity-webservice/simulations/:/home/simcity/sim-city-webservice/simulations/
+      - ./simcity-webservice/resources/:/home/simcity/sim-city-webservice/resources/
   commonsense:
     build:
       context: simcity-commonsense
