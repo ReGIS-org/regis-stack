@@ -26,18 +26,24 @@ WORKDIR /home/simcity/
 ENV N_PREFIX=/home/simcity
 RUN npm i -g npm
 RUN npm i -g n
-RUN ~/npm/bin/n latest
+RUN n latest
 RUN npm i -g typescript bower nodemon http-server gulp node-gyp js-beautify typings
 RUN npm i -g randomatic arr-flatten throat readable-stream write-file-atomic
 
-#COPY run /etc/service/simcity/
+COPY build.sh /home/simcity/
 COPY start.sh /home/simcity/
 
 USER root
+RUN chmod +x /home/simcity/build.sh
 RUN chmod +x /home/simcity/start.sh
+
 USER simcity
+RUN /home/simcity/build.sh
+USER root
+
+COPY run /etc/service/simcity/
+COPY projects /home/simcity/simcity/sim-city-cs/public/data/projects
 
 EXPOSE 3003
 
-# CMD ["/sbin/my_init"]
-CMD ["/home/simcity/start.sh"]
+CMD ["/sbin/my_init"]

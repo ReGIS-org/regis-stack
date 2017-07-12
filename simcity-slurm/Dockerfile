@@ -48,6 +48,8 @@ RUN virtualenv --python=/usr/bin/python3 simcity && . simcity/bin/activate && \
   git clone https://github.com/indodutch/sim-city-client.git && \
   cd sim-city-client && pip install -U pip && pip install .
 
+RUN . simcity/bin/activate && pip install numpy
+
 # Add the dependencies for your simulation here
 USER root
 RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y openjdk-7-jre
