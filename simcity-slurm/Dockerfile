@@ -18,7 +18,7 @@ RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # Upgrade OS
 RUN apt-get update && \
-  apt-get install -y slurm-llnl python3 git python-pip dos2unix && \
+  apt-get install -y slurm-llnl python3 git python-pip && \
   pip install virtualenv
 
 # Create a test user
@@ -32,7 +32,6 @@ RUN mkdir in out && chown -R xenon in out
 
 COPY munge.key /etc/munge/munge.key
 COPY service /etc/service
-RUN dos2unix /etc/service/**/run
 # Key was generated with openssl genrsa -out slurm.key 1024 && openssl rsa -in slurm.key -pubout -out slurm.cert
 COPY etc /etc/slurm-llnl
 
