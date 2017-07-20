@@ -51,3 +51,9 @@ services:
       - webdav
       - simcity_webservice
       - commonsense
+    depends_on:
+      - db
+      - webdav
+      - simcity_webservice
+      - commonsense
+  
