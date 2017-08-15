@@ -10,7 +10,7 @@
 #
 # ssh xenon@<ip of xenon-slurm container>
 
-FROM phusion/baseimage:0.9.17
+FROM phusion/baseimage:0.9.22
 MAINTAINER Stefan Verhoeven "s.verhoeven@esciencecenter.nl"
 
 RUN rm -f /etc/service/sshd/down
@@ -18,7 +18,7 @@ RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
 # Upgrade OS
 RUN apt-get update && \
-  apt-get install -y slurm-llnl python3 git python-pip && \
+  apt-get install -y slurm-llnl python3 git python-pip dos2unix && \
   pip install virtualenv
 
 # Create a test user
@@ -32,6 +32,7 @@ RUN mkdir in out && chown -R xenon in out
 
 COPY munge.key /etc/munge/munge.key
 COPY service /etc/service
+RUN dos2unix /etc/service/**/run
 # Key was generated with openssl genrsa -out slurm.key 1024 && openssl rsa -in slurm.key -pubout -out slurm.cert
 COPY etc /etc/slurm-llnl
 
@@ -51,7 +52,7 @@ RUN . simcity/bin/activate && pip install numpy
 
 # Add the dependencies for your simulation here
 USER root
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y openjdk-7-jre
+RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y openjdk-8-jre
 
 # Clean up install
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /home/simcity/
+exec /sbin/setuser simcity ./start.sh
