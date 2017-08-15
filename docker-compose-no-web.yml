@@ -24,6 +24,18 @@ services:
       - db:taskdb
       - db:jobdb
       - webdav
+  postgis:
+    build:
+      context: simcity-postgis
+    ports:
+      - "127.0.0.1:8082:8080"
+  geoserver:
+    build:
+      context: simcity-geoserver
+    ports:
+      - "127.0.0.1:8081:8080"
+    links:
+      - postgis
   simcity_webservice:
     build:
       context: simcity-webservice
@@ -46,3 +58,5 @@ services:
       - db:couchdb
       - webdav
       - simcity_webservice
+      - postgis
+      - geoserver
