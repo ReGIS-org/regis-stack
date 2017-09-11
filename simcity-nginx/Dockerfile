@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 COPY cors /etc/nginx/cors
-COPY nginx-1.conf /etc/nginx/nginx.conf
+COPY nginx-2.conf /etc/nginx/nginx.conf
 
 RUN adduser -D simcity
 
