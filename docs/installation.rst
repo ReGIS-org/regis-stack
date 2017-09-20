@@ -2,38 +2,35 @@
 
 Installation
 ============
-Installing the sim-city-web stack locally for development relies on docker.
-We will go over getting all the parts step by step. If you are an advanced user
-the README.md file gives a shorter overview of the installation. 
+The installation of Re-GIS consists of six steps. Re-GIS relies on the external programs ``docker``, ``docker-compose`` and ``git``. If you already have these programs on your computer, you may skip the three first steps.
 
-Installing Docker and docker-compose
-------------------------------------
-The installation for docker and docker-compose is best explained by the docker people.
+1) Install ``docker``. The docker documentation explains how to `install docker <https://docs.docker.com/engine/getstarted/>`__.
 
-To install docker see `the docker documentation <https://docs.docker.com/engine/getstarted/>`__.
-For docker-compose `see here <https://docs.docker.com/compose/install/>`__.
+2) Install ``docker-compose``. The docker-compose documentation outlines how to  `install docker-compose <https://docs.docker.com/compose/install/>`__.
 
+3) Install ``git``. The git webiste explains how to `install git <https://git-scm.com/downloads>`__.
 
-Getting the code
-----------------
-First download sim-city-stack and sim-city-cs from github using:
+4) Download Re-GIS from the git website:
 
 .. code:: shell
 
-    git clone https://git@github.com/indodutch/sim-city-stack.git
-    cd sim-city-stack
+    git clone https://github.com/indodutch/sim-city-stack.git
 
-    git clone https://git@github.com/indodutch/sim-city-cs.git
+This creates a new directory with the name sim-city-stack with all Re-GIS software
 
-Running the infrastructure
---------------------------
-To run the infrastructure use the following command:
+5) Start Re-GIS server via docker-compose:
 
 .. code:: shell
 
-    docker-compose up --build
+   cd sim-city-stack
+   docker-compose up --build
 
-You can stop it by pressing ctrl-c.
+The server can stopped by pressing ctrl-c in the same window
 
-We use the --build option so the docker images are built when you start it. Since I am assuming you will make changes
-to either sim-city-cs, simcity-webservice or simcity-slurm this ensures those changes are actually in the running system.
+6) Examine Re-GIS in a webbrowser:
+
+.. code:: shell
+
+    open http://localhost:8008
+
+An alternative is to open the address http://localhost:8008 in a webbrowser
