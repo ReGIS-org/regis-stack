@@ -4,6 +4,7 @@
     "command": "~/simulations/mysim/run.sh",
     "parallelism": "*",
     "resourceTypeUrl": "/explore/resource/mysim",
+    "defaultFeatureType": "Circle",
     "form": [
       "radius",
       {
@@ -25,7 +26,7 @@
     "properties": {
       "radius": {
         "type": "number",
-        "minimum": 1,
+        "minimum": 0,
         "maximum": 50,
         "default": 10,
         "title": "Radius",

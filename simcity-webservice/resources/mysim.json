@@ -1,13 +1,13 @@
 {
-    "id": "matsim",
-    "title": "matsim",
+    "id": "mysim",
+    "title": "mysim",
     "featureTypes": {
         "MapPoint": {
-            "id": "SimCity#firestation",
+            "id": "MySim#MapPoint",
             "name": "MapPoint",
             "style": {
                 "drawingMode": "Point",
-                "iconUri": "data/projects/simcity-demo/images/pin.png",
+                "iconUri": "data/projects/regis-demo/images/pin.png",
                 "cornerRadius": 50,
                 "fillColor": "#ffffff",
                 "iconWidth": 30,
@@ -17,11 +17,11 @@
             "propertyTypeKeys": "title,notes",
             "u": "bower_components/csweb/dist-bower/images/marker.png"
         },
-        "Ward": {
-            "id": "SimCity#Ward",
-            "name": "Ward",
+        "Circle": {
+            "id": "MySim#Circle",
+            "name": "Circle",
             "style": {
-                "nameLabel": "ward_name",
+                "nameLabel": "name",
                 "drawingMode": "Polygon",
                 "cornerRadius": 50,
                 "fillColor": "#999999",
@@ -29,58 +29,39 @@
                 "iconHeight": 30,
                 "strokeColor": "#ffffff"
             },
-            "propertyTypeKeys": "ward_name;ward_no;cmc_mc_nm;tot_p;first_responder;second_responder",
+            "propertyTypeKeys": "name;x;y;radius",
             "u": "bower_components/csweb/dist-bower/images/marker.png"
         }
     },
     "propertyTypeData": {
-        "ward_no": {
-            "label": "ward_no",
-            "type": "text",
-            "title": "Ward Number",
-            "visibleInCallOut": true,
-            "canEdit": false,
-            "isSearchable": true,
-            "section": "Metadata"
-        },
-        "ward_name": {
+        "name": {
             "label": "Name",
             "type": "text",
-            "title": "Name",
+            "title": "Circle Name",
             "visibleInCallOut": true,
             "canEdit": false,
-            "isSearchable": true,
-            "section": "Metadata"
+            "isSearchable": true
         },
-        "cmc_mc_nm": {
-            "label": "cmc_mc_nm",
+        "x": {
+            "label": "x",
             "type": "number",
-            "title": "City Name",
-            "canEdit": false,
-            "isSearchable": true,
+            "title": "X",
             "visibleInCallOut": true,
-            "section": "Metadata"
+            "canEdit": false,
+            "isSearchable": true
         },
-        "first_responder": {
-            "label": "first_responder",
+        "y": {
+            "label": "y",
             "type": "number",
-            "title": "First Responder",
+            "title": "Y",
             "canEdit": false,
             "isSearchable": true,
             "visibleInCallOut": true
         },
-        "second_responder": {
-            "label": "second_responder",
+        "radius": {
+            "label": "radius",
             "type": "number",
-            "title": "Second Responder",
-            "canEdit": false,
-            "isSearchable": true,
-            "visibleInCallOut": true
-        },
-        "tot_p": {
-            "label": "tot_p",
-            "type": "number",
-            "title": "Total Population",
+            "title": "Radius",
             "canEdit": false,
             "isSearchable": true,
             "visibleInCallOut": true
