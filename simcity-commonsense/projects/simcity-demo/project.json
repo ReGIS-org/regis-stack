@@ -1,5 +1,5 @@
 {
-    "title": "SimCity Demo",
+    "title": "SimCity Demo CommonSense",
     "description": "Description for SimCity",
     "url": "https://github.com/NLeSC/sim-city-cs",
     "connected": true,
@@ -27,7 +27,7 @@
             "top": "82px",
             "width": "300px",
             "data": {
-                "layerGroup": "SimCity",
+                "layerGroup": "SimCity CommonSense",
                 "buttons": []
             }
         },
@@ -42,7 +42,7 @@
             "bottom": "25px",
             "width": "450px",
             "data": {
-                "layerGroup": "SimCity"
+                "layerGroup": "SimCity CommonSense"
             },
             "collapse": true
         }],
@@ -124,10 +124,10 @@
         ]
     },
     {
-        "id": "SimCity",
+        "id": "SimCity CommonSense",
         "languages": {
             "en": {
-                "title": "SimCity",
+                "title": "SimCity CommonSense",
                 "description": "SimCity layers manipulation buttons"
             }
         },
