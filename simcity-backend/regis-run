@@ -1,0 +1,5 @@
+#!/bin/bash
+/sbin/my_init &
+sleep 5
+echo "ReGIS [backend] is running !!!"
+wait
