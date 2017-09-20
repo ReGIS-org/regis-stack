@@ -33,7 +33,12 @@ geojson = {
           coords
         ]
       },
-      "properties": {},
+      "properties": {
+        'name': 'Circle-1',
+        'x': x,
+        'y': y,
+        'radius': r
+      },
       "id": "xxxx_-8000"
     }
   ]
