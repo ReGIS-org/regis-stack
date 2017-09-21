@@ -21,7 +21,7 @@ One command
 One json input file
     The simcity webservice will supply your simulation with one json input file. This input file will be
     placed in an input directory. This input directory is available as an environment variable *$SIMCITY_IN*, or can be supplied
-    as an argument to your script if set up correctly in the webservice.
+    as an argument to your script if set up correctly in the webservice. For more information on the standards of GIS data, see :ref:`input-formats`.
 
 One output directory
     Any output of your simulation should be put in the designated output directory, avaiable as an environment variable: *$SIMCITY_OUT*.

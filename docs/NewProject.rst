@@ -105,6 +105,14 @@ Below is the main general structure for a project in the sim-city-cs framework.
         }
     }
 
+
+.. _input-formats:
+
+Input Format
+''''''''''
+Re-GIS works with GeoJSON or JSON input files. Other GIS standards include GML, SHP, KML, CSV.
+For more information, see, e.g. <http://https://www.datavizforall.org/transform/>`__.
+
 Dashboards
 ''''''''''
 The *dashboards* section describes which dashboards a project has, it is a list of dashboard objects.
