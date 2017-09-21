@@ -22,8 +22,10 @@ To create a new layer:
 
 1) click on the three horizontal lines, top left of the page
 2) click on the |Erlenmeyer bottle| logo (fourth from left)
+
 .. |Erlenmeyer bottle| image:: img/bottle.png
 3) click on the |pencil|
+
 .. |pencil| image:: img/brush.png
 4) drag the pin to an area on the map
 5) click on Show Simulation Form
