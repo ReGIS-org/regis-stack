@@ -17,8 +17,8 @@ services:
     ports:
       - "127.0.0.1:10022:22"
     links:
+      - backend:webdav
       - backend
-
   simcity_webservice:
     build:
       context: simcity-webservice
@@ -26,8 +26,8 @@ services:
       - "127.0.0.1:9098:9090"
       - "127.0.0.1:30022:22"
     links:
-      - backend:taskdb
-      - backend:jobdb
+      - backend:webdav
+      - backend
       - slurm
     volumes:
       - ./simcity-webservice/simulations/:/home/simcity/sim-city-webservice/simulations/

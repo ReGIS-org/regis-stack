@@ -21,9 +21,10 @@ COPY couchdb-run /etc/service/couchdb/run
 # WebDav config
 RUN apt-get install apache2 -y
 RUN mkdir /var/www/webdav
+RUN chown www-data:www-data -R /var/www
 RUN a2enmod dav
 RUN a2enmod dav_fs
-RUN a2enmod dav_lock
+COPY webdav.htpasswd /etc/apache2/conf/webdav.htpasswd
 
 # Apache config (previously nginx)
 COPY regis-backend.conf /etc/apache2/sites-enabled/
@@ -36,7 +37,7 @@ RUN mkdir /home/simcity/www
 COPY www/ /var/www/html
 
 # Webservice config
-USER root
 
+USER root
 COPY regis-run /
 CMD ["/regis-run"]
