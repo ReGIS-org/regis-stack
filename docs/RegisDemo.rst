@@ -22,16 +22,16 @@ To create a new layer:
 
 1) click on the three horizontal lines, top left of the page
 2) click on the |Erlenmeyer bottle| logo (fourth from left)
-
-.. |Erlenmeyer bottle| image:: img/bottle.png
 3) click on the |pencil|
-
-.. |pencil| image:: img/brush.png
 4) drag the pin to an area on the map
 5) click on Show Simulation Form
 6) press Submit in the new window
 7) on the left, click on the top blue eye
 8) click on the three slides of paper
 9) select the test.geojson item at the bottom
+
+.. |pencil| image:: img/brush.png
+
+.. |Erlenmeyer bottle| image:: img/bottle.png
 
 You will see a data layer with the pin logo with a yellow circle around it at the position selected by you. You can repeat these actions to select more positions with or without surrounding circles of various sizes.
