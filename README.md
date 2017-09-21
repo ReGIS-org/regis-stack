@@ -1,10 +1,23 @@
-# sim-city-stack
-Full Sim-City Stack using docker files and docker-compose.
+# Re-GIS
 
-The goal of this stack is to set up a development infrastructure of the sim-city stack
+Re-GIS (Research Environment for GIS) is an environment for visualizing data on maps. It was developed by the Netherlands eScience Center and TNO.
+
+
+# regis-stack
+Full Re-GIS Stack using docker files and docker-compose.
+
+The goal of this stack is to set up a development infrastructure of the regis stack
 it is not meant for production deployment!
 
 The full documentation is available at http://sim-city-stack.readthedocs.io/
+
+## Dependencies
+
+* docker and docker-compose
+* Apache CouchDB
+* SLURM
+
+### Setup instructions (using Docker containers)
 
 First, install docker and docker-compose.
 
@@ -63,3 +76,7 @@ This docker hosts a webdav server on port 8080. The user is `webdav` with passwo
 This docker hosts the nginx http server. Its configuration links the different docker components together.
 It also hosts static content on localhost/www/. You can add your own static content in the www directory,
 which gets copied into the docker image when it is built.
+
+
+### Contribution guidelines ###
+We use the same contribution guidelines as TNO for the CommonSense framework, see https://github.com/TNOCS/csWeb/
