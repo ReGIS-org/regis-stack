@@ -130,8 +130,5 @@
     "projects": [{
       "title": "SimCity demo",
       "url": "data/projects/simcity-demo/project.json"
-    },{
-      "title": "erikt",
-      "url": "data/projects/erikt/project.json"
     }]
 }
