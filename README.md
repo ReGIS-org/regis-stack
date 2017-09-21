@@ -17,7 +17,7 @@ The full documentation is available at http://sim-city-stack.readthedocs.io/
 * Apache CouchDB
 * SLURM
 
-### Setup instructions (using Docker containers)
+## Setup instructions (using Docker containers)
 
 First, install docker and docker-compose.
 
@@ -27,11 +27,13 @@ Put your simulation scripts in the simcity-slurm/simulations/ directory with the
 in the simcity-webservice/simulations/ directory. Check the documentation for more information on adding simulations
 to the system.
 
-Then, run a test infrastructure with
+### Usage
+
+Run a test infrastructure with
 ```
 docker-compose -f docker-compose-demo.yml up --build
 ```
-The sim-city frontend is now available on http://localhost:8008/. Commonsense is running on localhost:3003.
+The regis frontend is now available on http://localhost:8008/. Commonsense is running on localhost:3003.
 
 The sim-city-webservice is now available on localhost/explore/
 There is a CouchDB database running for tasks jobs on on localhost/couchdb/
@@ -40,6 +42,8 @@ A webdav server is running on localhost/webdav/
 These parts are strung together using nginx that is also running in a docker container.
 
 Finally, a slurm cluster is running to run simulations.
+
+To get an first impression of the frontend, see TNO's online demo at http://tnocs.github.io/csWeb/
 
 # The Docker Components
 
