@@ -141,7 +141,7 @@ Widgets
 
 The *widgets* section is a list of widgets included in the *dashboard*.
 In the simcity example project the home dashboard has a *buttonwidget* to allow the user the drag and drop features for the simulation
-on the map and a *simulation-form* widget for the form to submit a simulation. 
+on the map and a *simulation-form* widget for the form to submit a simulation.
 
 .. code:: json
 
@@ -198,7 +198,7 @@ Example Layer
     {
         "id": "MyLayer",                                    # id of the layer
         "reference": "mylayer",                             # Reference name
-        "languages": {                                      
+        "languages": {
             "en": {
                 "title": "My Layer",                        # Layer name
                 "description": "My Description"             # Layer description
@@ -220,6 +220,8 @@ Example Layer
         "opacity": 50                                       # The opacity (e.g. inverse transparancy)
                                                             # of the layer
     },
+
+More about resource type JSON, see section :ref:`resource-type-json`.
 
 It is also possible to define a layergroup where the layers are taken from an external server. For instance using ows:
 
