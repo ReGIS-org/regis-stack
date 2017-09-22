@@ -36,4 +36,4 @@ To create a new layer:
 .. |Erlenmeyer bottle| image:: img/bottle.png
 
 
-You will see a data layer with the pin logo with a yellow circle around it at the position selected by you. You can repeat these actions to select more positions with or without surrounding circles of various sizes.
+You will see a data layer with the pin logo with a yellow circle around it (.. image:: ../simcity-commonsense/projects/simcity-demo/images/pin.png) at the position selected by you. You can repeat these actions to select more positions with or without surrounding circles of various sizes.
