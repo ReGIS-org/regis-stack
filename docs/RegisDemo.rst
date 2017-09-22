@@ -31,7 +31,6 @@ To create a new layer:
 9) select the test.geojson item at the bottom
 
 .. |pencil| image:: img/brush.png
-
 .. |Erlenmeyer bottle| image:: img/bottle.png
 
 You will see a data layer with the pin logo with a yellow circle around it at the position selected by you. You can repeat these actions to select more positions with or without surrounding circles of various sizes.

@@ -363,7 +363,7 @@ Troubleshooting
 ===============
 
 My simulation does not run
-    Please check if your simulation run script is executable from whithin the docker container. To do this start the sim-city stack
+    Please check if your simulation run script is executable from within the docker container. To do this start the regist stack
     with *docker-compose up --build* then ssh into the docker container using *ssh -p10022 xenon@localhost* using password javagat.
     Best is to debug your simulation now by running it inside the container in this manner.
 
