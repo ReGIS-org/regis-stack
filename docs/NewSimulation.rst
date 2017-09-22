@@ -369,3 +369,7 @@ My simulation does not run
 
     If your simulation is running in this manner check whether there is a problem with the paths of where simcity-client is calling
     your simulation.
+
+
+You can `create new issues <https://github.com/ReGIS-org/regis-stack/issues>`__ for bugs and enhancements that were not reported yet
+(requires a GitHub account). When submitting an issue, review `our contribution guidelines <https://github.com/ReGIS-org/regis-stack/blob/master/CONTRIBUTING.md>`__.
