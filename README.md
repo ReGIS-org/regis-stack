@@ -1,12 +1,14 @@
 # Re-GIS
 
-Re-GIS (Research Environment for GIS) is an environment for visualizing data on maps. It was developed by the Netherlands eScience Center and TNO. The full documentation is available at http://sim-city-stack.readthedocs.io/
+[![Build Status](https://api.travis-ci.org/indodutch/sim-city-webservice.svg?branch=develop)](https://travis-ci.org/indodutch/sim-city-webservice)
+
+Re-GIS (Research Environment for GIS) is an environment for visualizing data on maps. It was developed by the Netherlands eScience Center and TNO. The full documentation is available at http://regis.readthedocs.io/
 
 
 # regis-stack
 Full Re-GIS Stack using docker files and docker-compose.
 
-The goal of this stack is to set up a development infrastructure of the regis stack
+The goal of this stack is to set up a development infrastructure of the regis stack,
 it is not meant for production deployment!
 
 ## Dependencies
