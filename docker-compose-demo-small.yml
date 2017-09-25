@@ -3,7 +3,7 @@ services:
   backend:
     build:
       context:
-        simcity-backend
+        regis-backend
     ports:
       - "127.0.0.1:5984:5984"
       - "127.0.0.1:8008:80"
@@ -13,7 +13,7 @@ services:
       COUCHDB_PASSWORD: simcity
   slurm:
     build:
-      context: simcity-slurm
+      context: regis-slurm
     ports:
       - "127.0.0.1:10022:22"
     links:
@@ -32,6 +32,6 @@ services:
       - ./simcity-webservice/resources/:/home/simcity/sim-city-webservice/resources/
   commonsense:
     build:
-      context: simcity-commonsense
+      context: commonsense
     ports:
       - "127.0.0.1:3003:3003"
