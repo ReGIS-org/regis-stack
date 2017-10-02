@@ -1,9 +1,9 @@
 FROM phusion/baseimage
 
-# Allow access to the container as user simcity
-RUN useradd -p $(openssl passwd simcity) -d /home/simcity -m --shell /bin/bash simcity
+# Allow access to the container as user regis
+RUN useradd -p $(openssl passwd regis) -d /home/regis -m --shell /bin/bash regis
 RUN apt-get update && apt-get install sudo -y
-RUN usermod -aG sudo simcity
+RUN usermod -aG sudo regis
 
 ## Enable SSH
 RUN rm -f /etc/service/sshd/down
@@ -32,8 +32,8 @@ RUN for module in "proxy proxy_http proxy_ajp rewrite deflate headers proxy_bala
 RUN a2dissite 000-default
 COPY apache-run /etc/service/apache2/run
 
-USER simcity
-RUN mkdir /home/simcity/www
+USER regis
+RUN mkdir /home/regis/www
 COPY www/ /var/www/html
 
 # Webservice config

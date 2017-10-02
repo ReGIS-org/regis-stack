@@ -1,0 +1,8 @@
+#!/bin/bash
+sed -i "s/COUCHDB_USER_PLACEHOLDER/$COUCHDB_USER/g" /home/xenon/.simcity_client
+sed -i "s/COUCHDB_PASSWORD_PLACEHOLDER/$COUCHDB_PASSWORD/g" /home/xenon/.simcity_client
+
+/sbin/my_init &
+sleep 5
+echo "ReGIS [slurm] is running !!!"
+wait

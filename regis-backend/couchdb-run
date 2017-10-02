@@ -1,5 +1,5 @@
 #!/bin/sh
 echo " Starting couchdb..."
-export HOME=/home/simcity
+export HOME=/home/regis
 printf "[admins]\n%s = %s\n" "$COUCHDB_USER" "$COUCHDB_PASSWORD" >> /etc/couchdb/local.ini
 /sbin/setuser couchdb couchdb
