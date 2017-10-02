@@ -1,4 +1,4 @@
 #!/bin/sh
 
-cd /home/simcity/
-exec /sbin/setuser simcity ./start.sh
+cd /home/regis
+exec /sbin/setuser regis ./start.sh

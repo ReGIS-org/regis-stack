@@ -9,40 +9,40 @@ RUN apt-get update && apt-get install -y nodejs nodejs-legacy npm git libsass-de
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
 
-RUN /usr/sbin/useradd -p $(openssl passwd simcity) -d /home/simcity -m --shell /bin/bash simcity
+RUN /usr/sbin/useradd -p $(openssl passwd regis) -d /home/regis -m --shell /bin/bash regis
 
-USER simcity
+USER regis
 
-RUN mkdir /home/simcity/npm && echo "prefix = /home/simcity/npm" > /home/simcity/.npmrc && echo "export PATH=/home/simcity/npm/bin:$PATH" >> /home/simcity/.profile && . /home/simcity/.profile && echo "export PATH=/home/simcity/npm/bin:$PATH" >> /home/simcity/.bashrc
-ENV PATH=/home/simcity/npm/bin:$PATH
+RUN mkdir /home/regis/npm && echo "prefix = /home/regis/npm" > /home/regis/.npmrc && echo "export PATH=/home/regis/npm/bin:$PATH" >> /home/regis/.profile && . /home/regis/.profile && echo "export PATH=/home/regis/npm/bin:$PATH" >> /home/regis/.bashrc
+ENV PATH=/home/regis/npm/bin:$PATH
 
-RUN mkdir /home/simcity/simcity
-WORKDIR /home/simcity/simcity
+RUN mkdir /home/regis/csweb
+WORKDIR /home/regis/csweb
 RUN git clone https://github.com/indodutch/csWeb.git
 RUN git clone https://github.com/indodutch/sim-city-cs.git
 
-WORKDIR /home/simcity/
+WORKDIR /home/regis/
 
-ENV N_PREFIX=/home/simcity
+ENV N_PREFIX=/home/regis
 RUN npm i -g npm
 RUN npm i -g n
 RUN n latest
 RUN npm i -g typescript bower nodemon http-server gulp node-gyp js-beautify typings
 RUN npm i -g randomatic arr-flatten throat readable-stream write-file-atomic
 
-COPY build.sh /home/simcity/
-COPY start.sh /home/simcity/
+COPY build.sh /home/regis/
+COPY start.sh /home/regis/
 
 USER root
-RUN chmod +x /home/simcity/build.sh
-RUN chmod +x /home/simcity/start.sh
+RUN chmod +x /home/regis/build.sh
+RUN chmod +x /home/regis/start.sh
 
-USER simcity
-RUN /home/simcity/build.sh
+USER regis
+RUN /home/regis/build.sh
 USER root
 
-COPY run /etc/service/simcity/
-COPY projects /home/simcity/simcity/sim-city-cs/public/data/projects
+COPY run /etc/service/regis/
+COPY projects /home/regis/csweb/sim-city-cs/public/data/projects
 
 EXPOSE 3003
 
