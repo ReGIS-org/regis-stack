@@ -23,7 +23,10 @@ This creates a new directory with the name ``regis-stack`` with all Re-GIS softw
 .. code:: shell
 
    cd regis-stack
-   docker-compose up --build
+   docker-compose up -f docker-compose-demo-small.yml --build
+
+Note: The first time this will take a long time as it needs to build the docker
+images.
 
 The server can stopped by pressing  ``ctrl-c`` in the same window
 

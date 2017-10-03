@@ -128,7 +128,7 @@
         "preview": "http://a.basemaps.cartocdn.com/light_nolabels/11/673/1051.png"
     }],
     "projects": [{
-      "title": "SimCity demo",
-      "url": "data/projects/simcity-demo/project.json"
+      "title": "ReGIS demo",
+      "url": "data/projects/regis-demo/project.json"
     }]
 }

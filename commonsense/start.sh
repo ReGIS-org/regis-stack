@@ -1,3 +1,3 @@
 #!/bin/sh
-cd /home/regis/csweb/sim-city-cs
+cd /home/regis/regis
 gulp serve

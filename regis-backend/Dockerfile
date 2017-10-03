@@ -28,7 +28,7 @@ COPY webdav.htpasswd /etc/apache2/conf/webdav.htpasswd
 
 # Apache config (previously nginx)
 COPY regis-backend.conf /etc/apache2/sites-enabled/
-RUN for module in "proxy proxy_http proxy_ajp rewrite deflate headers proxy_balancer proxy_connect proxy_html"; do a2enmod $module; done
+RUN for module in "proxy proxy_http proxy_ajp proxy_wstunnel rewrite deflate headers proxy_balancer proxy_connect proxy_html"; do a2enmod $module; done
 RUN a2dissite 000-default
 COPY apache-run /etc/service/apache2/run
 

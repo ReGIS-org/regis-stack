@@ -1,7 +1,7 @@
 {
     "title": "ReGIS Demo CommonSense",
     "description": "Description for ReGIS",
-    "url": "https://github.com/NLeSC/sim-city-cs",
+    "url": "https://github.com/ReGIS-org/regis-stack",
     "connected": true,
     "isDynamic": true,
     "datasources": [],
@@ -132,38 +132,11 @@
             }
         },
         "layers": []
-    }, {
-        "languages": {
-            "en": {
-                "title": "Vector layers (dynamic)",
-                "description": "ReGIS vector layers from OWS"
-            }
-        },
-        "clustering": true,
-        "layers": [],
-        "owsurl": "/geoserver/Bangalore/ows?service=wms&request=getCapabilities",
-        "owsgeojson": true
-    }, {
-        "languages": {
-            "en": {
-                "title": "Bhuvan layers (dynamic)",
-                "description": "Bhuvan layers from OWS"
-            }
-        },
-        "clustering": true,
-        "layers": [],
-        "owsurl": "/bhuvan/gwc/service/wms?service=wms&request=getCapabilities",
-        "owsgeojson": false
     }],
     "simAdmin": {
         "webserviceUrl": "/explore",
         "simulationName": "mysim",
         "simulationVersion": "latest"
-    },
-    "simulationEngines": [{
-        "name": "MatSim",
-        "launcher": "/explore/simulate/matsim/0.5",
-        "results": "/couchdb/regis/_design/matsim_0.5/_view/all_docs"
-    }]
+    }
 }
 

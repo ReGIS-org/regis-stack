@@ -5,7 +5,12 @@ MAINTAINER Berend Weel <b.weel@esciencecenter.nl>
 RUN rm -f /etc/service/sshd/down
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 
-RUN apt-get update && apt-get install -y nodejs nodejs-legacy npm git libsass-dev
+# Add yarn to package sources
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
+# Install dependencies
+RUN apt-get update && apt-get install -y nodejs nodejs-legacy npm git libsass-dev yarn
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get install -y nodejs
 
@@ -16,10 +21,9 @@ USER regis
 RUN mkdir /home/regis/npm && echo "prefix = /home/regis/npm" > /home/regis/.npmrc && echo "export PATH=/home/regis/npm/bin:$PATH" >> /home/regis/.profile && . /home/regis/.profile && echo "export PATH=/home/regis/npm/bin:$PATH" >> /home/regis/.bashrc
 ENV PATH=/home/regis/npm/bin:$PATH
 
-RUN mkdir /home/regis/csweb
-WORKDIR /home/regis/csweb
-RUN git clone https://github.com/indodutch/csWeb.git
-RUN git clone https://github.com/indodutch/sim-city-cs.git
+WORKDIR /home/regis
+RUN a=1;
+RUN git clone https://github.com/ReGIS-org/regis.git
 
 WORKDIR /home/regis/
 
@@ -42,7 +46,7 @@ RUN /home/regis/build.sh
 USER root
 
 COPY run /etc/service/regis/
-COPY projects /home/regis/csweb/sim-city-cs/public/data/projects
+COPY projects /home/regis/regis/public/data/projects
 
 EXPOSE 3003
 
