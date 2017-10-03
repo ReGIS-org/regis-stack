@@ -1,10 +1,23 @@
-# sim-city-stack
-Full Sim-City Stack using docker files and docker-compose.
+# Re-GIS
 
-The goal of this stack is to set up a development infrastructure of the sim-city stack
+[![Build Status](https://api.travis-ci.org/indodutch/sim-city-webservice.svg?branch=develop)](https://travis-ci.org/indodutch/sim-city-webservice)
+
+Re-GIS (Research Environment for GIS) is an environment for visualizing data on maps. It was developed by the Netherlands eScience Center and TNO. The full documentation is available at http://regis.readthedocs.io/
+
+
+# regis-stack
+Full Re-GIS Stack using docker files and docker-compose.
+
+The goal of this stack is to set up a development infrastructure of the regis stack,
 it is not meant for production deployment!
 
-The full documentation is available at http://sim-city-stack.readthedocs.io/
+## Dependencies
+
+* docker and docker-compose
+* Apache CouchDB
+* SLURM
+
+## Setup instructions (using Docker containers)
 
 First, install docker and docker-compose.
 
@@ -14,11 +27,13 @@ Put your simulation scripts in the simcity-slurm/simulations/ directory with the
 in the simcity-webservice/simulations/ directory. Check the documentation for more information on adding simulations
 to the system.
 
-Then, run a test infrastructure with
+## Usage
+
+Run a test infrastructure with
 ```
 docker-compose -f docker-compose-demo.yml up --build
 ```
-The sim-city frontend is now available on http://localhost:8008/. Commonsense is running on localhost:3003.
+The regis frontend is now available on http://localhost:8008/. Commonsense is running on localhost:3003.
 
 The sim-city-webservice is now available on localhost/explore/
 There is a CouchDB database running for tasks jobs on on localhost/couchdb/
@@ -27,6 +42,9 @@ A webdav server is running on localhost/webdav/
 These parts are strung together using nginx that is also running in a docker container.
 
 Finally, a slurm cluster is running to run simulations.
+
+#### Live Demo
+To get a first impression of the frontend, see [TNO's online demo](http://tnocs.github.io/csWeb).
 
 # The Docker Components
 

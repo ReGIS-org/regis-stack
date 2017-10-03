@@ -105,6 +105,15 @@ Below is the main general structure for a project in the sim-city-cs framework.
         }
     }
 
+
+.. _input-formats:
+
+Input Format
+''''''''''
+Re-GIS works with GeoJSON or JSON input files. Other GIS standards include GML, SHP, KML, CSV.
+For more information on the formats and convertion, see, e.g. `<https://www.datavizforall.org/transform/>`__.
+
+
 Dashboards
 ''''''''''
 The *dashboards* section describes which dashboards a project has, it is a list of dashboard objects.
@@ -141,7 +150,7 @@ Widgets
 
 The *widgets* section is a list of widgets included in the *dashboard*.
 In the simcity example project the home dashboard has a *buttonwidget* to allow the user the drag and drop features for the simulation
-on the map and a *simulation-form* widget for the form to submit a simulation. 
+on the map and a *simulation-form* widget for the form to submit a simulation.
 
 .. code:: json
 
@@ -198,7 +207,7 @@ Example Layer
     {
         "id": "MyLayer",                                    # id of the layer
         "reference": "mylayer",                             # Reference name
-        "languages": {                                      
+        "languages": {
             "en": {
                 "title": "My Layer",                        # Layer name
                 "description": "My Description"             # Layer description
@@ -220,6 +229,8 @@ Example Layer
         "opacity": 50                                       # The opacity (e.g. inverse transparancy)
                                                             # of the layer
     },
+
+More about resource type JSON, see section :ref:`resource-type-json`.
 
 It is also possible to define a layergroup where the layers are taken from an external server. For instance using ows:
 

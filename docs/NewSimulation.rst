@@ -21,7 +21,7 @@ One command
 One json input file
     The simcity webservice will supply your simulation with one json input file. This input file will be
     placed in an input directory. This input directory is available as an environment variable *$SIMCITY_IN*, or can be supplied
-    as an argument to your script if set up correctly in the webservice.
+    as an argument to your script if set up correctly in the webservice. For more information on the standards of GIS data, see :ref:`input-formats`.
 
 One output directory
     Any output of your simulation should be put in the designated output directory, avaiable as an environment variable: *$SIMCITY_OUT*.
@@ -69,7 +69,7 @@ If you use python I would suggest to create a virtual environment and use pip to
 
 .. code:: docker
 
-    RUN cd /home/xenon/mysim \ 
+    RUN cd /home/xenon/mysim \
         && virtualenv mysim \
         && . mysim/bin/activate \
         && pip install -U pip \
@@ -98,7 +98,7 @@ This json file should have the following layout:
 .. code:: json
 
     {
-        "latest": "0.2",    # latest and stable are two standard labels that you should include 
+        "latest": "0.2",    # latest and stable are two standard labels that you should include
         "stable": "0.1",    # the default label for the webservice is 'latest'
         "mylabel": "two",   # You can define any label you like however and link it to one of the
                             # full definitions below
@@ -115,7 +115,7 @@ This json file should have the following layout:
     }
 
 
-The description of your simulation should have to the following layout. 
+The description of your simulation should have to the following layout.
 
 .. code:: json
 
@@ -123,7 +123,7 @@ The description of your simulation should have to the following layout.
         "command": "~/simulations/mysim/run_mysim.sh",      # The command to run the simulation
         "parallelism": "*",                                 # The number of cores the simulation uses by itself, * means all.
                                                             # this allows sim-city-client to run multiple instances of your
-                                                            # simulation on the same node if the number of cores allows. 
+                                                            # simulation on the same node if the number of cores allows.
         "resourceTypeUrl": "/explore/resource/mysim",       # Url for the resource type json file. This can be any url, but
                                                             # the next section explains how to add it to the webservice
         "form": [                                           # Optional description of how to display the form for submitting
@@ -163,7 +163,7 @@ this `guide <https://spacetelescope.github.io/understanding-json-schema/about.ht
             "minItems": 0,
             "type": "array",
             "startEmpty": true,
-            "items": {                      # With an array parameter each item must be 
+            "items": {                      # With an array parameter each item must be
                 "type":"object",            # described as well
                 "properties": {             # Each item in this case has an x and y coordinate
                     "id": {                 # as well as an id. This is an example of a geo-
@@ -180,7 +180,7 @@ this `guide <https://spacetelescope.github.io/understanding-json-schema/about.ht
             },
             "description": "Please add one or more fire stations to the map",
 
-            # This message is shown when the form does not validate on this field 
+            # This message is shown when the form does not validate on this field
             "validationMessage": "Please add at least one fire station"
         }
     }
@@ -199,7 +199,7 @@ be given on a special layer. The name of this layer is given in the "layer" fiel
 created automatically when this simulation is selected for the front-end.
 
 This in combination with the resourceType description the front-end creates drag-and-drop buttons
-to add this feature to the input layer. 
+to add this feature to the input layer.
 
 .. code:: json
 
@@ -224,6 +224,7 @@ to add this feature to the input layer.
     ]
 
 
+.. _resource-type-json:
 
 Resource type json
 ------------------
@@ -362,7 +363,7 @@ Troubleshooting
 ===============
 
 My simulation does not run
-    Please check if your simulation run script is executable from whithin the docker container. To do this start the sim-city stack
+    Please check if your simulation run script is executable from within the docker container. To do this start the regist stack
     with *docker-compose up --build* then ssh into the docker container using *ssh -p10022 xenon@localhost* using password javagat.
     Best is to debug your simulation now by running it inside the container in this manner.
 
