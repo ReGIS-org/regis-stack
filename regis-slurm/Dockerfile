@@ -59,4 +59,5 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 COPY simulations/ /home/xenon/simulations/
 RUN chown -R xenon /home/xenon/simulations
 
-CMD ["/sbin/my_init"]
+COPY slurm-run /
+CMD ["/slurm-run"]

@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /home/regis
+exec /sbin/setuser regis ./start.sh

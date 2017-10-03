@@ -3,21 +3,24 @@ services:
   backend:
     build:
       context:
-        simcity-backend
+        regis-backend
     ports:
       - "127.0.0.1:5984:5984"
       - "127.0.0.1:8008:80"
       - "127.0.0.1:20022:22"
     environment:
-      COUCHDB_USER: simcityadmin
-      COUCHDB_PASSWORD: simcity
+      COUCHDB_USER: regisadmin
+      COUCHDB_PASSWORD: regis
   slurm:
     build:
-      context: simcity-slurm
+      context: regis-slurm
     ports:
       - "127.0.0.1:10022:22"
     links:
       - backend
+    environment:
+      COUCHDB_USER: regisadmin
+      COUCHDB_PASSWORD: regis
   simcity_webservice:
     build:
       context: simcity-webservice
@@ -30,8 +33,11 @@ services:
     volumes:
       - ./simcity-webservice/simulations/:/home/simcity/sim-city-webservice/simulations/
       - ./simcity-webservice/resources/:/home/simcity/sim-city-webservice/resources/
+    environment:
+      COUCHDB_USER: regisadmin
+      COUCHDB_PASSWORD: regis
   commonsense:
     build:
-      context: simcity-commonsense
+      context: commonsense
     ports:
       - "127.0.0.1:3003:3003"
