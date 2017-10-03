@@ -51,7 +51,7 @@ RUN . simcity/bin/activate && pip install numpy
 
 # Add the dependencies for your simulation here
 USER root
-RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y openjdk-7-jre
+# RUN export DEBIAN_FRONTEND=noninteractive && apt-get install -y openjdk-7-jre
 
 # Clean up install
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
