@@ -1,5 +1,5 @@
 {
-    "title": "SimCity CS csMap",
+    "title": "ReGIS CS csMap",
     "maxBounds-old": {
         "southWest": [11.0, 76.0],
         "northEast": [14.0, 79.0]
@@ -128,8 +128,8 @@
         "preview": "http://a.basemaps.cartocdn.com/light_nolabels/11/673/1051.png"
     }],
     "projects": [{
-      "title": "SimCity demo",
-      "url": "data/projects/simcity-demo/project.json"
+      "title": "ReGIS demo",
+      "url": "data/projects/regis-demo/project.json"
     },{
       "title": "erikt",
       "url": "data/projects/erikt/project.json"
