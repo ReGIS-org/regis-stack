@@ -115,8 +115,8 @@
                      }
                  },
                  "type": "GeoJson",
-                 "url": "data/projects/regis/resources/Firepaths.json",
-                 "typeUrl": "data/projects/regis/resources/matsim.json",
+                 "url": "data/projects/regis-demo/resources/Firepaths.json",
+                 "typeUrl": "data/projects/regis-demo/resources/matsim.json",
                  "enabled": false,
                  "opacity": 50
 
