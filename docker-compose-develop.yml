@@ -1,0 +1,47 @@
+version: '2'
+services:
+  backend:
+    build:
+      context:
+        regis-backend
+    ports:
+      - "127.0.0.1:5984:5984"
+      - "127.0.0.1:8008:80"
+      - "127.0.0.1:20022:22"
+    environment:
+      COUCHDB_USER: regisadmin
+      COUCHDB_PASSWORD: regis
+  slurm:
+    build:
+      context: regis-slurm
+    ports:
+      - "127.0.0.1:10022:22"
+    links:
+      - backend
+    environment:
+      COUCHDB_USER: regisadmin
+      COUCHDB_PASSWORD: regis
+    volumes:
+      - ./regis-slurm/simulations/:/home/xenon/simulations/
+  simcity_webservice:
+    build:
+      context: simcity-webservice
+    ports:
+      - "127.0.0.1:9098:9090"
+      - "127.0.0.1:30022:22"
+    links:
+      - backend
+      - slurm
+    volumes:
+      - ./simcity-webservice/simulations/:/home/simcity/sim-city-webservice/simulations/
+      - ./simcity-webservice/resources/:/home/simcity/sim-city-webservice/resources/
+    environment:
+      COUCHDB_USER: regisadmin
+      COUCHDB_PASSWORD: regis
+  frontend:
+      image: regis/regis
+      ports:
+        - "127.0.0.1:3003:3003"
+        - "127.0.0.1:40022:22"
+      volumes:
+        - /home/bweel/Documents/projects/regis/regis:/regis
