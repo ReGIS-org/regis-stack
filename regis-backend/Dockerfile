@@ -41,3 +41,4 @@ COPY www/ /var/www/html
 USER root
 COPY regis-run /
 CMD ["/regis-run"]
+ENTRYPOINT ["/bin/bash"]

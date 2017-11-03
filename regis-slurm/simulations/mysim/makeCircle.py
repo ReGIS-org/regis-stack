@@ -17,13 +17,20 @@ except:
 
 coords = [  ]
 
-for t in np.linspace(0, 2*np.pi, 50):
-    h = np.round(x + np.cos(t) * r,4)
-    k = np.round(y + np.sin(t) * r,4)
-    coords.append([ h, k ])
+for t in np.linspace(0, 2*np.pi, 500):
+    lon = np.round(x + np.cos(t) * r,4)
+    lat = np.round(y + np.sin(t) * r,4)
+
+    # lon = x_circ
+    # lat = 2 * np.arctan(np.exp(y_circ)) - np.pi/2
+
+    coords.append([ lon, lat ])
 
 geojson = {
   "type": "FeatureCollection",
+  "properties": {
+      "name": "urn:ogc:def:crs:EPSG::3395"
+  },
   "features": [
     {
       "type": "Feature",

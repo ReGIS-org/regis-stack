@@ -3,9 +3,10 @@
   "0.1": {
     "command": "~/simulations/mysim/run.sh",
     "parallelism": "*",
-    "resourceTypeUrl": "/explore/resource/mysim",
+    "resourceTypeUrl": "http://localhost:8008/explore/resource/mysim",
     "defaultFeatureType": "Circle",
     "form": [
+      "simulation",
       "radius",
       {
         "key": "centre",
@@ -24,6 +25,11 @@
       }
     ],
     "properties": {
+      "simulation": {
+        "title": "Simulation Name",
+        "type": "string",
+        "minLength": 1
+      },
       "radius": {
         "type": "number",
         "minimum": 0,
@@ -56,6 +62,6 @@
         "description": "Centre of a circle"
       }
     },
-    "required": [ "radius", "centre" ]
+    "required": [ "simulation", "radius", "centre" ]
   }
 }
