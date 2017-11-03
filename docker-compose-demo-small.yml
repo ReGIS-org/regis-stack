@@ -36,9 +36,10 @@ services:
     environment:
       COUCHDB_USER: regisadmin
       COUCHDB_PASSWORD: regis
-  commonsense:
-    build:
-      context: commonsense
+  frontend:
+    image: regis/regis
     ports:
       - "127.0.0.1:3003:3003"
       - "127.0.0.1:40022:22"
+    volumes:
+      - ./regis/projects:/regis/public/data/projects
