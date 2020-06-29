@@ -3,7 +3,7 @@
 Creating a New Project
 **********************
 
-This document describes the steps necesarry to create a new project within the sim-city web interface.
+This document describes the steps necessary to create a new project within the sim-city web interface.
 
 Before you start
 ================
@@ -61,7 +61,7 @@ Below I go into the several parts of the project.json.
 
 `Please note that json does not support comments. If you want to copy and paste
 parts of the commented sections be sure to remove the comments. Also keep in mind
-that parts are sometimes ommitted for readability.`
+that parts are sometimes omitted for readability.`
 
 Main Structure
 ''''''''''''''
@@ -73,7 +73,7 @@ Below is the main general structure for a project in the sim-city-cs framework.
         "title": "MyProject",                       # The project Title. Any string
         "description": "Description for MyProject", # The project Description. Any string
         "url": "https://github.com/MyProject",      # Url of the project, if any
-        "isDynamic": true,                          # isDyanamic means the changes to the
+        "isDynamic": true,                          # isDynamic means the changes to the
                                                     # project that are made using the user
                                                     # interface are saved to the disk
         "expertMode": 3,                            # Level of expertise of the use.
@@ -178,7 +178,7 @@ Groups
 ''''''
 
 A group is a set of layers grouped together under a common name.
-These groups are displayed under a collapsable name in the left menu under layers.
+These groups are displayed under a collapsible name in the left menu under layers.
 
 
 .. code:: json
@@ -189,7 +189,7 @@ These groups are displayed under a collapsable name in the left menu under layer
         "languages": {                                      # There is some support for multiple
                                                             # languages
             "en": {
-                "title": "My Layer",                        # The name of the layer gropu in english
+                "title": "My Layer",                        # The name of the layer group in english
                 "description": "My Awesome Layer"           # Description of the layer group
             }
         },
@@ -226,7 +226,7 @@ Example Layer
 
         "enabled": false,                                   # Whether the layer is enabled by default
 
-        "opacity": 50                                       # The opacity (e.g. inverse transparancy)
+        "opacity": 50                                       # The opacity (e.g. inverse transparency)
                                                             # of the layer
     },
 

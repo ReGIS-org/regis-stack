@@ -8,7 +8,7 @@ The installation of Re-GIS consists of six steps. Re-GIS relies on the external 
 
 2) Install ``docker-compose``. The docker-compose documentation outlines how to  `install docker-compose <https://docs.docker.com/compose/install/>`__.
 
-3) Install ``git``. The git webiste explains how to `install git <https://git-scm.com/downloads>`__.
+3) Install ``git``. The git website explains how to `install git <https://git-scm.com/downloads>`__.
 
 4) Download Re-GIS from the git website:
 
